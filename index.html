@@ -315,13 +315,15 @@
     <p class="sites-row">Amazon &bull; Flipkart &bull; Blinkit &bull; Ajio &bull; Zepto &mdash; share the link of any product and we will give you our best price!</p>
     <div class="form-box">
       <label for="product-link">Product Link</label>
-      <input type="url" id="product-link" placeholder="https://www.amazon.in/..." required>
+      <input type="url" id="product-link" placeholder="https://www.amazon.in/...">
+      <p class="form-note" id="link-warning" style="color:#c62a37; display:none; margin:8px 0 0; text-align:left;">Sorry, we only accept product links from trusted stores: Amazon, Flipkart, Blinkit, Ajio, Zepto. Please share a valid link from one of these stores.</p>
       <label for="customer-name">Your Name</label>
       <input type="text" id="customer-name" placeholder="e.g. Rahul">
       <label for="customer-phone">Your Phone / WhatsApp Number</label>
       <input type="tel" id="customer-phone" placeholder="e.g. 98765 43210">
       <button class="btn" onclick="sendPriceRequest()">Send for Best Price</button>
-      <p class="form-note">We usually reply within a few hours during shop timings (8 AM - 9:30 PM).</p>    </div>
+      <p class="form-note">We verify every link before opening it. Only links from the trusted stores listed above are accepted. We reply within a few hours during shop timings (8 AM - 9:30 PM).</p>
+    </div>
   </section>
 
   <section id="review">
@@ -373,11 +375,39 @@
 </footer>
 
 <script>
+var allowedDomains = ['amazon.in', 'amazon.com', 'flipkart.com', 'blinkit.com', 'ajio.com', 'zepto.com', 'myntra.com', 'meesho.com', 'snapdeal.com'];
+
+function getDomain(url) {
+  try {
+    var host = new URL(url).hostname;
+    return host.toLowerCase();
+  } catch (e) {
+    return null;
+  }
+}
+
+function isTrusted(domain) {
+  if (!domain) return false;
+  return allowedDomains.some(function(allowed) {
+    return domain === allowed || domain.endsWith('.' + allowed);
+  });
+}
+
 function sendPriceRequest() {
   var link = document.getElementById('product-link').value.trim();
   var name = document.getElementById('customer-name').value.trim();
   var phone = document.getElementById('customer-phone').value.trim();
+  var warning = document.getElementById('link-warning');
+  warning.style.display = 'none';
+
   if (!link) { alert('Please paste the product link first.'); return; }
+
+  var domain = getDomain(link);
+  if (!isTrusted(domain)) {
+    warning.style.display = 'block';
+    return;
+  }
+
   var msg = 'Hello Vishwamitra\'s Gallery! I found this product and want your best price.\n\nProduct Link: ' + link;
   if (name) msg += '\nName: ' + name;
   if (phone) msg += '\nPhone: ' + phone;
