@@ -202,6 +202,28 @@
   .hours li { list-style: none; padding: 6px 0; border-bottom: 1px dashed #ddd; display: flex; justify-content: space-between; }
   .hours li:last-child { border-bottom: none; }
   .hours .day { font-weight: 600; color: var(--dark); }
+  .form-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .form-box label { font-weight: 600; color: var(--dark); display: block; margin: 14px 0 6px; font-size: 0.95rem; }
+  .form-box input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #e2e2e2;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+  }
+  .form-box input:focus { outline: none; border-color: var(--primary); }
+  .form-box .btn { margin-top: 18px; width: 100%; text-align: center; cursor: pointer; border: none; }
+  .form-note { text-align: center; font-size: 0.85rem; color: #888; margin-top: 10px; }
+  .sites-row { text-align: center; margin-bottom: 8px; font-size: 0.95rem; color: #666; }
 </style>
 </head>
 <body>
@@ -216,6 +238,7 @@
   <a href="#about">About</a>
   <a href="#products">Products</a>
   <a href="#why-us">Why Us</a>
+  <a href="#price-match">Best Price</a>
   <a href="#timings">Timings</a>
   <a href="#review">Review</a>
   <a href="#faq">FAQ</a>
@@ -287,6 +310,21 @@
       loading="lazy" title="Vishwamitra's Gallery location map"></iframe>
   </section>
 
+  <section id="price-match">
+    <h2>Found It Cheaper Elsewhere?</h2>
+    <p class="sites-row">Amazon &bull; Flipkart &bull; Blinkit &bull; Ajio &bull; Zepto &mdash; kisi bhi site ka link bhejein, hum apna best price batayenge!</p>
+    <div class="form-box">
+      <label for="product-link">Product Link</label>
+      <input type="url" id="product-link" placeholder="https://www.amazon.in/..." required>
+      <label for="customer-name">Your Name</label>
+      <input type="text" id="customer-name" placeholder="e.g. Rahul">
+      <label for="customer-phone">Your Phone / WhatsApp Number</label>
+      <input type="tel" id="customer-phone" placeholder="e.g. 98765 43210">
+      <button class="btn" onclick="sendPriceRequest()">Send for Best Price</button>
+      <p class="form-note">We usually reply within a few hours during shop timings (8 AM - 9:30 PM).</p>
+    </div>
+  </section>
+
   <section id="review">
     <h2>Love Our Shop?</h2>
     <div class="cta">
@@ -334,6 +372,19 @@
 <footer>
   <p>&copy; 2026 Vishwamitra's Gallery, Sector 134, Noida. All rights reserved.</p>
 </footer>
+
+<script>
+function sendPriceRequest() {
+  var link = document.getElementById('product-link').value.trim();
+  var name = document.getElementById('customer-name').value.trim();
+  var phone = document.getElementById('customer-phone').value.trim();
+  if (!link) { alert('Please paste the product link first.'); return; }
+  var msg = 'Hello Vishwamitra\'s Gallery! I found this product and want your best price.\n\nProduct Link: ' + link;
+  if (name) msg += '\nName: ' + name;
+  if (phone) msg += '\nPhone: ' + phone;
+  window.open('https://wa.me/917503758511?text=' + encodeURIComponent(msg), '_blank');
+}
+</script>
 
 </body>
 </html>
