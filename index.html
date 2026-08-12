@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vishwamitra's Gallery | Toys, Gifts &amp; Stationery - Noida Sector 134</title>
+<meta name="description" content="Vishwamitra's Gallery - Toys, Gifts & Stationery shop in Sector 134, Noida. Toys, gift items and school stationery all under one roof.">
+<meta name="keywords" content="Vishwamitra's Gallery, toys shop Noida, gift shop Sector 134, stationery shop Noida, toys Noida, gifts Noida">
+<meta name="geo.region" content="IN-UP">
+<meta name="geo.placename" content="Noida, Uttar Pradesh">
+<link rel="canonical" href="https://your-shop-domain.example/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #e63946;
+    --primary-dark: #c62a37;
+    --dark: #1d3557;
+    --bg: #f8f9fa;
+    --accent: #ffb703;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--dark) 0%, #457b9d 100%);
+    color: #fff;
+    padding: 40px 20px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: "🎁";
+    position: absolute;
+    font-size: 220px;
+    opacity: 0.08;
+    right: -40px;
+    bottom: -40px;
+    transform: rotate(-15deg);
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 6px 16px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+  header h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: 0.5px; }
+  header p { font-size: 1.1rem; opacity: 0.9; margin-top: 6px; }
+  nav {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 10px;
+  }
+  nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+  }
+  nav a:hover { background: var(--accent); color: var(--dark); }
+  .container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+  section { margin-bottom: 40px; }
+  h2 {
+    font-size: 1.7rem;
+    color: var(--dark);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2::after { content: ""; flex: 1; height: 3px; background: var(--accent); border-radius: 3px; }
+  .about p { font-size: 1.05rem; max-width: 800px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+  .card .emoji { font-size: 2.6rem; display: block; margin-bottom: 8px; }
+  .card h3 { color: var(--dark); font-size: 1.05rem; }
+  .card p { font-size: 0.9rem; color: #666; }
+  .contact-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .contact-box .item .label { font-weight: 700; color: var(--primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+  .contact-box .item .value { font-size: 1.05rem; color: var(--dark); }
+  .cta {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #fff;
+    padding: 40px 20px;
+    border-radius: 14px;
+  }
+  .cta h2 { color: #fff; justify-content: center; }
+  .cta h2::after { display: none; }
+  .cta p { margin-bottom: 20px; }
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--dark);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 14px 34px;
+    border-radius: 30px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .map {
+    width: 100%;
+    height: 350px;
+    border: 0;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  }
+  footer {
+    text-align: center;
+    padding: 24px 20px;
+    color: #888;
+    font-size: 0.9rem;
+  }
+  .hours li { list-style: none; padding: 6px 0; border-bottom: 1px dashed #ddd; display: flex; justify-content: space-between; }
+  .hours li:last-child { border-bottom: none; }
+  .hours .day { font-weight: 600; color: var(--dark); }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="badge">Toys &bull; Gifts &bull; Stationery &bull; Crafting</span>
+  <h1>Vishwamitra's Gallery</h1>
+  <p>Sector 134, Noida &mdash; Your complete shop for toys, gifts, stationery &amp; crafting</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#products">Products</a>
+  <a href="#timings">Timings</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<main class="container">
+
+  <section id="about">
+    <h2>About Our Shop</h2>
+    <p>Welcome to <strong>Vishwamitra's Gallery</strong>, your neighbourhood shop for <strong>toys, gifts, stationery &amp; crafting</strong> in Sector 134, Noida. Toys for children, gift items for every occasion, stationery for school and office and craft supplies for creative minds &mdash; all under one roof. We are your one-stop shop for quality products at fair prices.</p>
+  </section>
+
+  <section id="products">
+    <h2>What We Sell</h2>
+    <div class="grid">
+      <div class="card"><span class="emoji">🧸</span><h3>Toys</h3><p>Soft toys, educational games, action figures and much more.</p></div>
+      <div class="card"><span class="emoji">🎁</span><h3>Gifts</h3><p>Birthday, anniversary and corporate gift items.</p></div>
+      <div class="card"><span class="emoji">📚</span><h3>Stationery</h3><p>School items, notebooks, pens and office supplies.</p></div>
+      <div class="card"><span class="emoji">🎨</span><h3>Crafting</h3><p>Craft supplies, art materials and DIY items.</p></div>
+    </div>
+  </section>
+
+  <section id="timings">
+    <h2>Shop Timings</h2>
+    <div class="contact-box">
+      <div>
+        <ul class="hours">
+          <li><span class="day">Monday &ndash; Sunday</span><span>8:00 AM &ndash; 9:30 PM</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="item">
+          <div class="label">Location</div>
+          <div class="value">Sector 134, Noida, Uttar Pradesh 201304</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact &amp; Location</h2>
+    <div class="contact-box" style="margin-bottom:20px;">
+      <div class="item">
+        <div class="label">Phone</div>
+        <div class="value">+91 7503758511</div>
+      </div>
+      <div class="item">
+        <div class="label">Email</div>
+        <div class="value">vishwamitrasgallery@gmail.com</div>
+      </div>
+      <div class="item">
+        <div class="label">Address</div>
+        <div class="value">Sector 134, Noida, Uttar Pradesh 201304</div>
+      </div>
+    </div>
+    <iframe class="map"
+      src="https://www.google.com/maps?q=Sector+134+Noida&output=embed"
+      loading="lazy" title="Vishwamitra's Gallery location map"></iframe>
+  </section>
+
+  <div class="cta">
+    <h2>Visit Us Today!</h2>
+    <p>Best toys, gifts, stationery and crafting supplies in Sector 134. Perfect place for your family!</p>
+    <a class="btn" href="https://wa.me/917503758511" target="_blank" rel="noopener">WhatsApp Us</a>
+    <a class="btn" style="background:#fff;" href="https://www.google.com/maps/search/Vishwamitra's+Gallery+Sector+134+Noida" target="_blank" rel="noopener">Get Directions</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Vishwamitra's Gallery, Sector 134, Noida. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
